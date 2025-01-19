@@ -5,6 +5,7 @@ body {
     padding: 0;
     background-color: #f4f4f9;
     color: #333;
+    text-align: center;
 }
 
 header {
@@ -24,6 +25,11 @@ header a {
 
 header a:hover {
     text-decoration: underline;
+}
+
+.main-title {
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .main-container {
@@ -52,13 +58,6 @@ header a:hover {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
-.game-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
 .game-card h3 {
     margin: 15px 0 10px;
     font-size: 18px;
@@ -70,4 +69,14 @@ header a:hover {
     background-color: #222;
     color: white;
     margin-top: 20px;
+}
+
+.game-container {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
