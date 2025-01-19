@@ -2,7 +2,7 @@
 
 ## Table of Contents  
 - [Intro](#intro)
-- [Projes](#projects)
+- [Projets](#projets)
     - [Page du Profile](#page-du-profile)
     - [EpiDLE](#epidle)
     - [EpiClicker](#epiclicker)
