@@ -8,6 +8,13 @@ const characters = [
         taille: "1690"
     },
     {
+        name: "LEROY LEONARD",
+        pseudo: "Léo",
+        genre: "Licorne",
+        ddn: "12-02-2006",
+        taille: "171"
+    },
+    {
         name: "LAFOLIE Evan",
         pseudo: "LORAY",
         genre: "M",
