@@ -101,8 +101,8 @@ Un jeu de collection de cartes inspiré des jeux comme *Magic: The Gathering*. L
 
 Un grand merci à tous les contributeurs qui rendent ce projet possible :
 
-- [Vivicaty](https://github.com/VivicatcHub) (Le meilleur)
-- [Leonard Leroy](https://github.com/LeonardLeroy)
+- [Vivicaty](https://github.com/VivicatcHub) -> "Je suis le meilleur"
+- [Léo Leroy](https://github.com/LeonardLeroy) -> "Je s'appelle root"
 
 <details>
     <summary>Dev Info</summary>
