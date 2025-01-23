@@ -1,3 +1,4 @@
+(function(){
 let epicoin = 0;
 let passiveIncome = 0;
 let upgrades = [
@@ -18,6 +19,7 @@ function clickButton() {
     updateDisplay();
     writeCode();
 }
+
 
 function writeCode() {
     const codeSnippets = [
@@ -160,6 +162,19 @@ function generatePassiveIncome() {
     updateDisplay();
 }
 
+
+document.getElementById('click').addEventListener('click', clickButton);
+document.getElementById('acupgrade').addEventListener('click', function(){
+    purchaseUpgrade(0)
+});
+document.getElementById('codelineupgrade').addEventListener('click', function(){
+    purchaseUpgrade(1)
+});
+
+document.getElementById('debuggrade').addEventListener('click', function(){
+    purchaseUpgrade(2)
+});
 setInterval(generatePassiveIncome, 1000);
 
 updateDisplay();
+})();

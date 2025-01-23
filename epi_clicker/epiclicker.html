@@ -10,17 +10,19 @@
     <h1>EpiClicker</h1>
     <p>Epicoin: <span id="epicoin-count">0</span></p>
     <p>Passive Income: <span id="passive-income">0</span> per second</p>
-    <button onclick="clickButton()">Click me!</button>
+    <button id="click">Click me!</button>
     
     <div class="upgrade">
         <h2>Upgrades</h2>
-        <button onclick="purchaseUpgrade(0)">Auto Clicker (Cost: 10 Epicoin)</button>
-        <button onclick="purchaseUpgrade(1)">Code Line (Cost: 50 Epicoin)</button>
-        <button onclick="purchaseUpgrade(2)">Debugger (Cost: 100 Epicoin)</button>
+        <button id="acupgrade">Auto Clicker (Cost: 10 Epicoin)</button>
+        <button id="codelineupgrade">Code Line (Cost: 50 Epicoin)</button>
+        <button id="debuggrade">Debugger (Cost: 100 Epicoin)</button>
     </div>
 
     <div id="code-display" style="white-space: pre-wrap; overflow-y: scroll; height: 200px; border: 1px solid black;"></div>
 
-    <script src="epiclicker.js"></script>
 </body>
 </html>
+
+<script src="epiclicker.js"></script>
+<script src="epiantiskid.js"></script>
