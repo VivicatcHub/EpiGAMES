@@ -1,3 +1,4 @@
+(function(){
 let epicoin = 0;
 let passiveIncome = 0;
 let upgrades = [
@@ -17,7 +18,16 @@ function clickButton() {
     epicoin += 1;
     updateDisplay();
     writeCode();
+    var btn = document.getElementById('click');
+    var s = btn.parentElement;
+
+    var clone = btn.cloneNode(true);
+    s.appendChild(clone);
+    btn.remove()
+
+    document.getElementById('click').addEventListener('click', clickButton);
 }
+
 
 function writeCode() {
     const codeSnippets = [
@@ -160,6 +170,19 @@ function generatePassiveIncome() {
     updateDisplay();
 }
 
+
+document.getElementById('click').addEventListener('click', clickButton);
+document.getElementById('acupgrade').addEventListener('click', function(){
+    purchaseUpgrade(0)
+});
+document.getElementById('codelineupgrade').addEventListener('click', function(){
+    purchaseUpgrade(1)
+});
+
+document.getElementById('debuggrade').addEventListener('click', function(){
+    purchaseUpgrade(2)
+});
 setInterval(generatePassiveIncome, 1000);
 
 updateDisplay();
+})();
