@@ -1,3 +1,4 @@
+/* Global body settings */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -10,6 +11,7 @@ body {
     flex-direction: column;
 }
 
+/* Header styles */
 header {
     background-color: #222;
     color: white;
@@ -34,17 +36,20 @@ header a:hover {
     font-size: 20px;
 }
 
+/* Main container for page content */
 .main-container {
     padding: 20px;
     flex: 1;
 }
 
+/* Style for the games grid */
 .games-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
 }
 
+/* Game card styling */
 .game-card {
     background-color: white;
     border: 1px solid #ddd;
@@ -66,6 +71,7 @@ header a:hover {
     font-size: 18px;
 }
 
+/* Footer style */
 .footer {
     text-align: center;
     padding: 10px;
@@ -73,6 +79,7 @@ header a:hover {
     color: white;
 }
 
+/* Styling for the game container */
 .game-container {
     margin: 20px auto;
     max-width: 600px;
@@ -83,6 +90,7 @@ header a:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Quest container fixed position */
 #quests-container {
     position: fixed;
     top: 50%;
@@ -98,4 +106,83 @@ header a:hover {
 
 #quests-container:hover {
     transform: translate(0, -50%);
+}
+
+/* New styles for the contact page (widgets) */
+.contact-container {
+    display: flex;
+    width: 80%;
+    height: 80%;
+    margin: 20px auto;
+    justify-content: space-between;
+}
+
+/* Left side (GitHub widget) */
+.contact-left {
+    flex: 1;
+    background-color: #24292f;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    /* Ensures elements stack in a column */
+    justify-content: flex-start;
+    /* Aligns items to the top */
+    border-radius: 10px 0 0 10px;
+    background-image: url("https://www.photofunky.net/output/image/f/2/2/b/f22b81/photofunky.gif");
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    
+}
+
+/* Right side (Discord widget) */
+.contact-right {
+    flex: 1;
+    background-color: #5865f2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    /* Ensures elements stack in a column */
+    justify-content: flex-start;
+    /* Aligns items to the top */
+    border-radius: 0 10px 10px 0;
+}
+
+/* Styling for the title inside widgets */
+.contact-left h2,
+.contact-right h2 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 10px;
+    /* Space below the title */
+}
+
+/* Styling for iframe widgets (GitHub, Discord) */
+.contact-left iframe {
+    width: 100%;
+    height: 30px;
+    border: none;
+}
+
+.contact-right iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+
+    .contact-left,
+    .contact-right {
+        flex: none;
+        height: auto;
+        width: 100%;
+        padding: 10px;
+    }
 }
