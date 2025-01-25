@@ -17,5 +17,5 @@ document.onkeydown = (e) => {
 };
 
 // pause inspect element
-setInterval(function() {debugger;}, 500);
+setInterval(function () { debugger; }, 500);
 

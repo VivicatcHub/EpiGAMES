@@ -1,13 +1,43 @@
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
     text-align: center;
-    margin-top: 50px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 button {
     font-size: 20px;
     padding: 10px 20px;
     margin: 10px;
+}
+
+header {
+    background-color: #222;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+.main-container {
+    padding: 20px;
+    flex: 1;
 }
 
 .upgrade {
@@ -30,13 +60,26 @@ button {
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
-    animation: scrollMessage 5s linear;
+    animation: scrollMessage 2s linear;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #222;
+    color: white;
+}
+
+.main-title {
+    font-weight: bold;
+    font-size: 20px;
 }
 
 @keyframes scrollMessage {
     from {
         transform: translateY(0);
     }
+
     to {
         transform: translateY(-100%);
     }

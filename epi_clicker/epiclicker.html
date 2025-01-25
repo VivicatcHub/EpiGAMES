@@ -1,29 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EpiClicker</title>
-    <link rel="stylesheet" href="style.css">
+    <title>EpiGAMES - EpiClicker</title>
+    <link rel="stylesheet" href="epiclicker.css">
 </head>
+
 <body>
-    <h1>EpiClicker</h1>
-    <p>Epicoin: <span id="epicoin-count">0</span></p>
-    <p>Passive Income: <span id="passive-income">0</span> per second</p>
-    <div>
-    <button id="click">Click me!</button>
-    </div>
-    
-    <div class="upgrade">
-        <h2>Upgrades</h2>
-        <button id="acupgrade">Auto Clicker (Cost: 10 Epicoin)</button>
-        <button id="codelineupgrade">Code Line (Cost: 50 Epicoin)</button>
-        <button id="debuggrade">Debugger (Cost: 100 Epicoin)</button>
+    <!-- Header -->
+    <header>
+        <div>
+            <a href="../index.html" class="main-title">EpiGAMES</a>
+        </div>
+        <nav>
+            <a href="../index.html">Menu</a>
+            <a href="../contacts.html">Contacts</a>
+            <a href="../profile.html">Profile</a>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <h1>EpiClicker</h1>
+        <p>Epicoin: <span id="epicoin-count">0</span></p>
+        <p>Passive Income: <span id="passive-income">0</span> per second</p>
+        <div>
+            <button id="click">Click me!</button>
+        </div>
+
+        <div class="upgrade">
+            <h2>Upgrades</h2>
+            <button id="acupgrade">Auto Clicker (Cost: 10 Epicoin)</button>
+            <button id="codelineupgrade">Code Line (Cost: 50 Epicoin)</button>
+            <button id="debuggrade">Debugger (Cost: 100 Epicoin)</button>
+        </div>
+
+        <div id="code-display"
+            style="white-space: pre-wrap; overflow-y: scroll; height: 200px; border: 1px solid black;">
+        </div>
     </div>
 
-    <div id="code-display" style="white-space: pre-wrap; overflow-y: scroll; height: 200px; border: 1px solid black;"></div>
-
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2025 EpiGAMES. Tous droits réservés.
+    </div>
 </body>
+
 </html>
 
 <script src="epiclicker.js"></script>
