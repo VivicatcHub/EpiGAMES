@@ -6,6 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EpiGAMES - EpiDLE</title>
     <link rel="stylesheet" href="../style.css">
+    <style>
+        .stats-container {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .stat-box {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,12 +42,15 @@
         <h1>EpiDLE</h1>
 
         <div class="game-container">
+            <label for="character-input">Name :</label>
+            <input type="text" id="character-input" placeholder="Nom du personnage">
+            <div id="stats-display" class="stats-container"></div>
         </div>
     </div>
 
     <!-- Footer -->
     <div class="footer">
-        &copy; 2025 EpiGAMES. Tous droits réservés.
+        &copy; 2025 EpiGAMES. all rights reserved.
     </div>
 </body>
 
