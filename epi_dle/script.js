@@ -25,7 +25,10 @@ const datas = {
     pseudo: "str",
     genre: "str",
     ddn: "date",
-    taille: "int"
+    taille: "int",
+    campus: "str",
+    promotion: "int",
+    asso: "str"
 };
 
 const characters = [
@@ -34,32 +37,44 @@ const characters = [
         name: "GUINET Valentin",
         pseudo: "Vivicaty",
         genre: "M",
-        ddn: "31-12-2005",
-        taille: "169"
+        ddn: "31/12/2005",
+        taille: "169",
+        campus: "Lyon",
+        promotion: "2029",
+        asso: "Delegués,Cobra,Ambassadeur,AnimeTek,HOD"
     },
     {
         id: 1,
         name: "LEROY Léonard",
         pseudo: "Léo",
         genre: "M",
-        ddn: "12-02-2006",
-        taille: "171"
+        ddn: "12/02/2006",
+        taille: "171",
+        campus: "Lyon",
+        promotion: "2029",
+        asso: "Cobra,AnimeTek"
     },
     {
         id: 2,
         name: "LAFOLIE Evan",
         pseudo: "LORAY",
         genre: "M",
-        ddn: "15-05-2006",
-        taille: "175"
+        ddn: "15/05/2006",
+        taille: "175",
+        campus: "Lyon",
+        promotion: "2029",
+        asso: "Delegués,AnimeTek,JAM"
     },
     {
         id: 3,
         name: "JOURDAIN DE MUIZON Ferréol",
         pseudo: "Fefe",
         genre: "M",
-        ddn: "15-04-2004",
-        taille: "180"
+        ddn: "15/04/2004",
+        taille: "180",
+        campus: "Lyon",
+        promotion: "2029",
+        asso: "Ambassadeur,AnimeTek,HOD"
     }
 ];
 
@@ -144,16 +159,25 @@ function display_stats(character) {
         }
         const stat_box = document.createElement("div");
         stat_box.className = "stat-box";
-        stat_box.innerHTML = value;
-        // console.log(character, solution);
+        stat_box.innerHTML = value.replaceAll(",", " ");
         if (datas[key] == "str") {
-            if (value == solution[key]) {
+            const v = value.split(",");
+            let count = 0;
+
+            for (let i = 0; i < v.length; i++) {
+                if (solution[key].split(",").includes(v[i])) {
+                    count++;
+                }
+            }
+            if (count == v.length) {
                 stat_box.classList.add("green");
+            } else if (count > 0) {
+                stat_box.classList.add("yellow");
             }
         } else if (datas[key] == "date") {
             // Convert dates
-            const [day1, month1, year1] = value.split("-").map(Number);
-            const [day2, month2, year2] = solution[key].split("-").map(Number);
+            const [day1, month1, year1] = value.split("/").map(Number);
+            const [day2, month2, year2] = solution[key].split("/").map(Number);
 
             const d1 = new Date(year1, month1 - 1, day1);
             const d2 = new Date(year2, month2 - 1, day2);

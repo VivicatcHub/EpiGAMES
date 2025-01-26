@@ -46,35 +46,6 @@ header a:hover {
     flex: 1;
 }
 
-/* Style for the games grid */
-.games-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-/* Game card styling */
-.game-card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 20px;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.game-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-}
-
-.game-card h3 {
-    margin: 15px 0 10px;
-    font-size: 18px;
-}
-
 /* Footer style */
 .footer {
     text-align: center;
@@ -86,12 +57,9 @@ header a:hover {
 /* Styling for the game container */
 .game-container {
     margin: 20px auto;
-    max-width: 600px;
+    max-width: 90%;
+    width: auto;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Quest container fixed position */
@@ -209,7 +177,6 @@ header a:hover {
     justify-content: center;
     width: 100px;
     height: 100px;
-    /* Red Background by default */
     background-color: #d53633;
     border-radius: 10px;
     color: white;
@@ -217,21 +184,26 @@ header a:hover {
     font-size: 14px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     position: relative;
+
+    /* Ensure text wraps inside the box */
+    word-wrap: break-word; /* For older browsers */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; /* Allows text to wrap to the next line */
+
+    /* Ensure content is clipped within the box */
+    overflow: hidden;
 }
+
 
 .stat-box.green {
     /* Green Background */
     background-color: #3da75e;
 }
 
-.stat-box .title {
-    font-weight: bold;
-    margin-bottom: 5px;
-    font-size: 16px;
-}
-
-.stat-box .value {
-    font-size: 14px;
+.stat-box.yellow {
+    /* Yellow Background */
+    background-color: rgba(217, 200, 39, .6980392156862745);
 }
 
 .stat-box[style*="background-image"] {
