@@ -1,5 +1,36 @@
+/////////////////////////////////////////////////////////////////////////////////////////////
+///   ___________      .__  ________    _____      _____  ___________ _________
+///   \_   _____/_____ |__|/  _____/   /  _  \    /     \ \_   _____//   _____/
+///    |    __)_\____ \|  /   \  ___  /  /_\  \  /  \ /  \ |    __)_ \_____  \ 
+///    |        \  |_> >  \    \_\  \/    |    \/    Y    \|        \/        \
+///   /_______  /   __/|__|\______  /\____|__  /\____|__  /_______  /_______  /
+///           \/|__|              \/         \/         \/        \/        \/ 
+///
+///   ___________      .__________  .____     ___________                      
+///   \_   _____/_____ |__\______ \ |    |    \_   _____/                      
+///    |    __)_\____ \|  ||    |  \|    |     |    __)_                       
+///    |        \  |_> >  ||    `   \    |___  |        \                      
+///   /_______  /   __/|__/_______  /_______ \/_______  /                      
+///           \/|__|              \/        \/        \/   
+///   
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////
+/// MAIN VARIABLES
+////////////////////////////////////////////////////////////
+
+const datas = {
+    id: null,
+    name: null,
+    pseudo: "str",
+    genre: "str",
+    ddn: "date",
+    taille: "int"
+};
+
 const characters = [
     {
+        id: 0,
         name: "GUINET Valentin",
         pseudo: "Vivicaty",
         genre: "M",
@@ -7,13 +38,15 @@ const characters = [
         taille: "169"
     },
     {
-        name: "LEROY LEONARD",
+        id: 1,
+        name: "LEROY Léonard",
         pseudo: "Léo",
         genre: "M",
         ddn: "12-02-2006",
         taille: "171"
     },
     {
+        id: 2,
         name: "LAFOLIE Evan",
         pseudo: "LORAY",
         genre: "M",
@@ -21,6 +54,7 @@ const characters = [
         taille: "175"
     },
     {
+        id: 3,
         name: "JOURDAIN DE MUIZON Ferréol",
         pseudo: "Fefe",
         genre: "M",
@@ -52,6 +86,10 @@ document.body.appendChild(suggestions_container);
 // List with char already choosen
 let selected_characters = [];
 let current_selection_index = -1; // Index of suggestion
+
+////////////////////////////////////////////////////////////
+/// MAIN FUNCTIONS
+////////////////////////////////////////////////////////////
 
 // Update Suggestions
 function update_suggestions(query) {
@@ -97,16 +135,57 @@ function update_suggestions(query) {
 // Display stats
 function display_stats(character) {
     const box = document.createElement("div");
-    box.className = "stat-box";
-    box.style.display = "flex";
-    box.style.border = "none";
-    box.style.background = "none";
+    box.className = "stat-container";
 
     // Box for each stats
     for (const [key, value] of Object.entries(character)) {
+        if (datas[key] == null) {
+            continue;
+        }
         const stat_box = document.createElement("div");
         stat_box.className = "stat-box";
         stat_box.innerHTML = value;
+        // console.log(character, solution);
+        if (datas[key] == "str") {
+            if (value == solution[key]) {
+                stat_box.classList.add("green");
+            }
+        } else if (datas[key] == "date") {
+            // Convert dates
+            const [day1, month1, year1] = value.split("-").map(Number);
+            const [day2, month2, year2] = solution[key].split("-").map(Number);
+
+            const d1 = new Date(year1, month1 - 1, day1);
+            const d2 = new Date(year2, month2 - 1, day2);
+
+            // Compare dates
+            if (d1 < d2) {
+                stat_box.style.backgroundImage =
+                "url('https://cdn.pixabay.com/photo/2013/07/12/12/29/arrow-145783_640.png')";
+            } else if (d2 < d1) {
+                stat_box.style.backgroundImage =
+                "url('https://cdn.pixabay.com/photo/2013/07/12/12/29/arrow-145782_1280.png')";
+            } else {
+                stat_box.classList.add("green");
+            }
+        } else if (datas[key] == "int") {
+            const v1 = Number(value);
+            const v2 = Number(solution[key]);
+
+            if (v1 < v2) {
+                stat_box.style.backgroundImage =
+                    "url('https://cdn.pixabay.com/photo/2013/07/12/12/29/arrow-145783_640.png')";
+            } else if (v2 < v1) {
+                stat_box.style.backgroundImage =
+                    "url('https://cdn.pixabay.com/photo/2013/07/12/12/29/arrow-145782_1280.png')";
+            } else {
+                stat_box.classList.add("green");
+            }
+        }
+        // Ajust images
+        stat_box.style.backgroundSize = "contain";
+        stat_box.style.backgroundRepeat = "no-repeat";
+        stat_box.style.backgroundPosition = "center";
         box.appendChild(stat_box);
     }
     stats_display.appendChild(box);
@@ -178,3 +257,24 @@ input.addEventListener('focus', function () {
     suggestions_container.style.top = `${inputRect.bottom + window.scrollY}px`;
     suggestions_container.style.left = `${inputRect.left + window.scrollX}px`;
 });
+
+function character_of_the_day() {
+    const date = new Date();
+    const day_hash = date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate(); // Unic number every day
+    const index = day_hash % characters.length; // Choose daily character
+    if (characters[index]["id"] == character_of_yesterday()["id"]) {
+        index = (index + 1) % characters.length;
+    }
+    return characters[index]
+}
+
+function character_of_yesterday() {
+    const date = new Date();
+    date.setDate(date.getDate() - 1);
+    const day_hash = date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
+    const index = day_hash % characters.length;
+    return characters[index];
+}
+
+let solution = character_of_the_day();
+console.log(`Today ${solution["name"]}, Yesterday ${character_of_yesterday()["name"]}`);
