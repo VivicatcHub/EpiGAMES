@@ -16,26 +16,7 @@
 ///
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-// Complete quest
-function complete_quest(id, number) {
-    // Find datas in LocalStorage
-    let dailyQuests = JSON.parse(localStorage.getItem("DailyQuests")) || [];
-
-    // Find quest with id 
-    dailyQuests = dailyQuests.map(quest => {
-        if (quest.name.id === id) {
-            if (quest.name.number > 0) {
-                quest.name.number -= number;
-            }
-            if (quest.name.number <= 0) {
-                quest.name.number = 0;
-                quest.completed = true; // Completed
-            }
-        }
-        return quest;
-    });
-
-    localStorage.setItem("DailyQuests", JSON.stringify(dailyQuests));
-}
-
+// Init
+generate_daily_quests();
+display_daily_quests();
 complete_quest(3, 1);

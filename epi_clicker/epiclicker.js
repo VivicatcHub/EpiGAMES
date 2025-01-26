@@ -15,28 +15,6 @@
 ///   
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-// Complete quest
-function complete_quest(id, number) {
-    // Find datas in LocalStorage
-    let dailyQuests = JSON.parse(localStorage.getItem("DailyQuests")) || [];
-
-    // Find quest with id 
-    dailyQuests = dailyQuests.map(quest => {
-        if (quest.name.id === id) {
-            if (quest.name.number > 0) {
-                quest.name.number -= number;
-            }
-            if (quest.name.number <= 0) {
-                quest.name.number = 0;
-                quest.completed = true; // Completed
-            }
-        }
-        return quest;
-    });
-
-    localStorage.setItem("DailyQuests", JSON.stringify(dailyQuests));
-}
-
 (function () {
     let epicoin = 0;
     let passiveIncome = 0;
@@ -44,7 +22,7 @@ function complete_quest(id, number) {
         { name: "Auto Clicker", cost: 10, increment: 1 },
         { name: "Code Line", cost: 50, increment: 5 },
         { name: "Debugger", cost: 100, increment: 10 },
-        { name: "Vivicaty's Help", cost: 1000, increment: 100 },
+        { name: "Vivicaty's Help", cost: 1000, increment: 100 }
     ];
     let writingSpeed = 100;
     let message_queue = [];
@@ -80,13 +58,33 @@ function complete_quest(id, number) {
         }, 0);
     }
 
+    function createUpgradeButtons(containerId) {
+        // Clear the container
+        const container = document.getElementById(containerId);
+        container.innerHTML = '<h2>Upgrades</h2>';
+
+        // Generate buttons dynamically from the upgrades array
+        upgrades.forEach((upgrade, index) => {
+            const button = document.createElement('button');
+            button.id = upgrade.id || `upgrade-${index}`;
+            button.textContent = `${upgrade.name} (Cost: ${upgrade.cost} Epicoin)`;
+
+            // Add click event to purchase the upgrade
+            button.addEventListener('click', () => purchaseUpgrade(index));
+
+            // Append button to the container
+            container.appendChild(button);
+        });
+    }
+
     function purchaseUpgrade(index) {
         if (epicoin >= upgrades[index].cost) {
             epicoin -= upgrades[index].cost;
             complete_quest(2, 1);
             passiveIncome += upgrades[index].increment;
-            upgrades[index].cost *= 2;
+            upgrades[index].cost += (upgrades[index].increment * 10);
             updateDisplay();
+            createUpgradeButtons('upgrade-container');
             showMessage(`Purchased ${upgrades[index].name}!`);
         } else {
             showMessage(`Not enough coin to buy ${upgrades[index].name}!`);

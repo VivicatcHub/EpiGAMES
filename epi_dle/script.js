@@ -15,28 +15,6 @@
 ///   
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-// Complete quest
-function complete_quest(id, number) {
-    // Find datas in LocalStorage
-    let dailyQuests = JSON.parse(localStorage.getItem("DailyQuests")) || [];
-
-    // Find quest with id 
-    dailyQuests = dailyQuests.map(quest => {
-        if (quest.name.id === id) {
-            if (quest.name.number > 0) {
-                quest.name.number -= number;
-            }
-            if (quest.name.number <= 0) {
-                quest.name.number = 0;
-                quest.completed = true; // Completed
-            }
-        }
-        return quest;
-    });
-
-    localStorage.setItem("DailyQuests", JSON.stringify(dailyQuests));
-}
-
 ////////////////////////////////////////////////////////////
 /// MAIN VARIABLES
 ////////////////////////////////////////////////////////////
@@ -325,5 +303,8 @@ function character_of_yesterday() {
     return characters[index];
 }
 
+// Init
+generate_daily_quests();
+display_daily_quests();
 let solution = character_of_the_day();
 console.log(`Today ${solution["name"]}, Yesterday ${character_of_yesterday()["name"]}`);

@@ -35,6 +35,24 @@ header a:hover {
     text-decoration: underline;
 }
 
+/* Quest container fixed position */
+#quests-container {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translate(90%, -50%);
+    padding: 15px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+#quests-container:hover {
+    transform: translate(0, -50%);
+}
+
 .main-container {
     padding: 20px;
     flex: 1;

@@ -39,6 +39,40 @@ const quest_pool = [
     }
 ];
 
+let count = 0;
+
+// Complete quest
+function complete_quest(id, number) {
+    if (number <= 0) {
+        return;
+    }
+
+    // Find datas in LocalStorage
+    let dailyQuests = JSON.parse(localStorage.getItem("DailyQuests")) || [];
+
+    // Find quest with id 
+    dailyQuests = dailyQuests.map(quest => {
+        if (quest.name.id === id) {
+            if (quest.name.number > 0) {
+                quest.name.number -= number;
+            }
+            if (quest.name.number <= 0) {
+                quest.name.number = 0;
+                quest.completed = true; // Completed
+            }
+        }
+        return quest;
+    });
+
+    localStorage.setItem("DailyQuests", JSON.stringify(dailyQuests));
+    count++;
+    if (count > 10) {
+        generate_daily_quests();
+        display_daily_quests();
+        count = 0;
+    }
+}
+
 // Select 4 random quests
 function generate_daily_quests() {
     const date = new Date().toDateString(); // Date
@@ -63,8 +97,12 @@ function generate_daily_quests() {
 
 // Display quests
 function display_daily_quests() {
-    const quests_container = document.createElement("div");
-    quests_container.id = "quests-container";
+    let quests_container = document.getElementById("quests-container");
+    if (quests_container == null) {
+        quests_container = document.createElement("div");
+        quests_container.id = "quests-container";
+    }
+    quests_container.innerHTML = "";
 
     const title = document.createElement("h3");
     title.innerText = "Daily Quests";
