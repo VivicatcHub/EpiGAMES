@@ -15,6 +15,28 @@
 ///   
 /////////////////////////////////////////////////////////////////////////////////////////////
 
+// Complete quest
+function complete_quest(id, number) {
+    // Find datas in LocalStorage
+    let dailyQuests = JSON.parse(localStorage.getItem("DailyQuests")) || [];
+
+    // Find quest with id 
+    dailyQuests = dailyQuests.map(quest => {
+        if (quest.name.id === id) {
+            if (quest.name.number > 0) {
+                quest.name.number -= number;
+            }
+            if (quest.name.number <= 0) {
+                quest.name.number = 0;
+                quest.completed = true; // Completed
+            }
+        }
+        return quest;
+    });
+
+    localStorage.setItem("DailyQuests", JSON.stringify(dailyQuests));
+}
+
 ////////////////////////////////////////////////////////////
 /// MAIN VARIABLES
 ////////////////////////////////////////////////////////////
@@ -155,6 +177,9 @@ function display_stats(character) {
     // Box for each stats
     for (const [key, value] of Object.entries(character)) {
         if (datas[key] == null) {
+            if (value == solution.id) {
+                complete_quest(0, 1);
+            }
             continue;
         }
         const stat_box = document.createElement("div");

@@ -15,6 +15,28 @@
 ///   
 /////////////////////////////////////////////////////////////////////////////////////////////
 
+// Complete quest
+function complete_quest(id, number) {
+    // Find datas in LocalStorage
+    let dailyQuests = JSON.parse(localStorage.getItem("DailyQuests")) || [];
+
+    // Find quest with id 
+    dailyQuests = dailyQuests.map(quest => {
+        if (quest.name.id === id) {
+            if (quest.name.number > 0) {
+                quest.name.number -= number;
+            }
+            if (quest.name.number <= 0) {
+                quest.name.number = 0;
+                quest.completed = true; // Completed
+            }
+        }
+        return quest;
+    });
+
+    localStorage.setItem("DailyQuests", JSON.stringify(dailyQuests));
+}
+
 (function () {
     let epicoin = 0;
     let passiveIncome = 0;
@@ -34,6 +56,7 @@
 
     function clickButton() {
         epicoin += 1;
+        complete_quest(1, 1);
         updateDisplay();
         writeCode();
     }
@@ -60,6 +83,7 @@
     function purchaseUpgrade(index) {
         if (epicoin >= upgrades[index].cost) {
             epicoin -= upgrades[index].cost;
+            complete_quest(2, 1);
             passiveIncome += upgrades[index].increment;
             upgrades[index].cost *= 2;
             updateDisplay();
@@ -110,6 +134,7 @@
 
     function generatePassiveIncome() {
         epicoin += passiveIncome;
+        complete_quest(1, passiveIncome);
         updateDisplay();
     }
 

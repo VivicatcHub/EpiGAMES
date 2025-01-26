@@ -17,16 +17,26 @@
 
 // Quests 
 const quest_pool = [
-    "Collect 100 coins",
-    "Win 3 games in a row",
-    "Play for 30 minutes",
-    "Complete a puzzle",
-    "Invite a friend to play",
-    "Achieve a high score of 5000",
-    "Unlock a new character",
-    "Craft a rare item",
-    "Watch a tutorial video",
-    "Customize your profile"
+    {
+        id: 0,
+        name: "[DLE] - Find the character of today",
+        number: 1
+    },
+    {
+        id: 1,
+        name: "[Clicker] - Make 100 cookies",
+        number: 100
+    },
+    {
+        id: 2,
+        name: "[Clicker] - Buy 10 upgrades",
+        number: 10
+    },
+    {
+        id: 3,
+        name: "[Contacts] - Look at our contacts",
+        number: 1
+    }
 ];
 
 // Select 4 random quests
@@ -67,7 +77,7 @@ function display_daily_quests() {
     list.style.listStyle = "none";
     daily_quests.forEach((quest, index) => {
         const list_item = document.createElement("li");
-        list_item.innerText = quest.name;
+        list_item.innerText = quest.name.name;
         list_item.style.marginBottom = "5px";
         list_item.style.textDecoration = quest.completed ? "line-through" : "none";
 
