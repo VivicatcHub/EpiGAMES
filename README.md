@@ -107,6 +107,7 @@ Un grand merci à tous les contributeurs qui rendent ce projet possible :
 - [Vivicaty](https://github.com/VivicatcHub) -> "Je suis le meilleur"
 - [Léo Leroy](https://github.com/LeonardLeroy) -> "Je s'appelle root"
 - [L33TSP34KER](https://github.com/L33TSP34KER) -> *Met une phrase sale noobie*
+- [LORAY](https://github.com/LORAY-guy) -> "2nd best Lore man"
 
 <details>
     <summary>Dev Info</summary>

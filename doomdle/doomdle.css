@@ -1,0 +1,109 @@
+@font-face {
+    font-family: "EternalUI";
+    src: url("EternalUI.ttf");
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: "EternalBattle";
+    src: url("EternalBattle.ttf");
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: "doom2016";
+    src: url("doom2016.ttf");
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    background-image: url("doom_bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: "EternalUI";
+    image-resolution: from-image;
+}
+
+.main-container {
+    margin-top: 4%;
+}
+
+#title {
+    margin-top: 2%;
+    image-rendering: pixelated;
+}
+
+#subtitle {
+    font-family: "EternalBattle";
+    font-size: 25px;
+    color: rgb(238, 255, 0);
+    margin-top: -1px;
+    text-shadow: #ff0000 2px 0 10px;
+}
+
+#doomdle-input {
+    font-family: "EternalUI";
+    font-size: 18px;
+    margin-top: 2%;
+    background-color: #7b8307bb;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border-color: rgb(90, 45, 15);
+    border-width: 2px;
+    border-style: solid;
+}
+
+#doomdle-input::placeholder {
+    color: rgb(243, 239, 14);
+}
+
+#doomdle-input[type=text]:focus {
+    outline: none;
+    border-color: #f4f4f9;
+}
+
+#stats-display {
+    font-family: "EternalUI";
+    font-size: 18px;
+    margin-top: 2%;
+}
+
+#smol_credits {
+    margin-top: 1%;
+    image-rendering: pixelated;
+}
+
+#copyright {
+    font-family: "EternalUI";
+    font-size: 16px;
+    color: rgb(238, 255, 0);
+    text-shadow: #ff0000 2px 0 10px;
+    margin-bottom: 2%;
+}
+
+.stat-box {
+    animation: slideIn 0.5s ease-out forwards;
+    opacity: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.stat-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
