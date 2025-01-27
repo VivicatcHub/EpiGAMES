@@ -60,7 +60,7 @@ const characters = [
         pseudo: "LORAY",
         genre: "M",
         ddn: "15/05/2006",
-        taille: "175",
+        taille: "178",
         campus: "Lyon",
         promotion: "2029",
         asso: "Delegués,AnimeTek,JAM"
@@ -71,10 +71,21 @@ const characters = [
         pseudo: "Fefe",
         genre: "M",
         ddn: "15/04/2004",
-        taille: "180",
+        taille: "183",
         campus: "Lyon",
         promotion: "2029",
         asso: "Ambassadeur,AnimeTek,HOD"
+    },
+    {
+        id: 4,
+        name: "WASZAK Kylian",
+        pseudo: "K.",
+        genre: "M",
+        ddn: "20/06/2006",
+        taille: "181",
+        campus: "Lyon",
+        promotion: "2029",
+        asso: "AnimeTek,Backtrackers"
     }
 ];
 
