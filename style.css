@@ -23,12 +23,16 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
 }
 
 header a {
     color: white;
     text-decoration: none;
-    margin-left: 20px;
+    align-items: end;
+    margin-right: 40px;
 }
 
 header a:hover {
@@ -52,6 +56,10 @@ header a:hover {
     padding: 10px;
     background-color: #222;
     color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
 }
 
 /* Styling for the game container */
