@@ -1,6 +1,6 @@
 const datas = {
     id: null,
-    name: null,
+    name: "str",
     first_appearance: "str",
     height: "str",
     class: "str",

@@ -105,7 +105,7 @@ header a:hover {
     position: fixed;
     top: 50%;
     right: 0;
-    transform: translate(90%, -50%);
+    transform: translate(90%, 0);
     padding: 15px;
     background-color: #f4f4f4;
     border: 1px solid #ccc;
@@ -115,7 +115,7 @@ header a:hover {
 }
 
 #quests-container:hover {
-    transform: translate(0, -50%);
+    transform: translate(0, 0);
 }
 
 /* New styles for the contact page (widgets) */
@@ -195,4 +195,36 @@ header a:hover {
         width: 100%;
         padding: 10px;
     }
+}
+
+@keyframes heartBeat {
+    0% {
+        /* Position initiale */
+        transform: translate(90%, 0);
+    }
+
+    20% {
+        /* Centre de l'écran */
+        transform: translate(calc(50% - 50vw), 0);
+    }
+
+    50% {
+        /* Battement au centre */
+        transform: translate(calc(50% - 50vw), 0) scale(1.3);
+    }
+
+    80% {
+        /* Retour progressif à l'état normal */
+        transform: translate(calc(50% - 50vw), 0) scale(1);
+    }
+
+    100% {
+        /* Retour à la position initiale */
+        transform: translate(90%, 0);
+    }
+}
+
+.quests-finish {
+    animation-name: heartBeat;
+    animation-duration: 3s;
 }

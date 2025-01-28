@@ -111,7 +111,12 @@ function display_stats(character) {
             stat_box.innerHTML = value;
         }
 
-        if (datas[key] == "str") {
+        if (datas[key] == null) {
+            if (value == solution.id) {
+                complete_quest(4, 1);
+            }
+            continue;
+        } else if (datas[key] == "str") {
             const v = value.split(",").map((x) => x.trim().toLowerCase());
             const solutionValues = solution[key].split(", ").map((x) => x.trim().toLowerCase());
             const matchCount = v.filter((item) => solutionValues.includes(item)).length;

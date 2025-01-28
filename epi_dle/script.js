@@ -98,6 +98,7 @@ function display_stats(character) {
         if (datas[key] == null) {
             if (value == solution.id) {
                 complete_quest(0, 1);
+                complete_quest(4, 1);
             }
             continue;
         }
