@@ -19,76 +19,6 @@
 /// MAIN VARIABLES
 ////////////////////////////////////////////////////////////
 
-const datas = {
-    id: null,
-    name: null,
-    pseudo: "str",
-    genre: "str",
-    ddn: "date",
-    taille: "int",
-    campus: "str",
-    promotion: "int",
-    asso: "str"
-};
-
-const characters = [
-    {
-        id: 0,
-        name: "GUINET Valentin",
-        pseudo: "Vivicaty",
-        genre: "M",
-        ddn: "31/12/2005",
-        taille: "169",
-        campus: "Lyon",
-        promotion: "2029",
-        asso: "Delegués,Cobra,Ambassadeur,AnimeTek,HOD"
-    },
-    {
-        id: 1,
-        name: "LEROY Léonard",
-        pseudo: "Léo",
-        genre: "M",
-        ddn: "12/02/2006",
-        taille: "171",
-        campus: "Lyon",
-        promotion: "2029",
-        asso: "Cobra,AnimeTek"
-    },
-    {
-        id: 2,
-        name: "LAFOLIE Evan",
-        pseudo: "LORAY",
-        genre: "M",
-        ddn: "15/05/2006",
-        taille: "178",
-        campus: "Lyon",
-        promotion: "2029",
-        asso: "Delegués,AnimeTek,JAM"
-    },
-    {
-        id: 3,
-        name: "JOURDAIN DE MUIZON Ferréol",
-        pseudo: "Fefe",
-        genre: "M",
-        ddn: "15/04/2004",
-        taille: "183",
-        campus: "Lyon",
-        promotion: "2029",
-        asso: "Ambassadeur,AnimeTek,HOD"
-    },
-    {
-        id: 4,
-        name: "WASZAK Kylian",
-        pseudo: "K.",
-        genre: "M",
-        ddn: "20/06/2006",
-        taille: "181",
-        campus: "Lyon",
-        promotion: "2029",
-        asso: "AnimeTek,Backtrackers"
-    }
-];
-
 // INPUT
 const input = document.getElementById("character-input");
 input.setAttribute("autocomplete", "off");  // Whitout suggestions
@@ -126,21 +56,21 @@ function update_suggestions(query) {
     // Filter by name or pseudo without already select
     const matches = characters.filter(
         (character) =>
-            (character.name.toLowerCase().startsWith(query.toLowerCase()) ||
+            (character.first_name.toLowerCase().startsWith(query.toLowerCase()) || character.last_name.toLowerCase().startsWith(query.toLowerCase()) ||
                 character.pseudo.toLowerCase().startsWith(query.toLowerCase())) &&
-            !selected_characters.includes(character.name) // Without already select
+            !selected_characters.includes(character.id) // Without already select
     );
 
     // Display suggestions
     matches.forEach((character, index) => {
         const suggestion = document.createElement("div");
-        suggestion.textContent = `${character.name} (${character.pseudo})`;
+        suggestion.textContent = `${character.first_name} ${character.last_name} (${character.pseudo})`;
         suggestion.style.padding = "5px";
         suggestion.style.cursor = "pointer";
         suggestion.dataset.index = index;
         suggestion.addEventListener("click", () => {
             display_stats(character);
-            selected_characters.push(character.name); // Add to already select
+            selected_characters.push(character.id); // Add to already select
             suggestions_container.innerHTML = ""; // Clear suggestions after selection
             input.value = ""; // clear input
         });
@@ -262,14 +192,14 @@ input.addEventListener("keydown", function (event) {
         if (matches.length > 0 && current_selection_index >= 0) {
             const selected_character = matches[current_selection_index];
             display_stats(selected_character);
-            selected_characters.push(selected_character.name);  // Add to list of selected
+            selected_characters.push(selected_character.id);  // Add to list of selected
             suggestions_container.innerHTML = "";  // Clear suggestions
             input.value = "";  // Clear input
         } else if (matches.length > 0) {
             // If no one selected take first
             const first_character = matches[0];
             display_stats(first_character);
-            selected_characters.push(first_character.name);
+            selected_characters.push(first_character.id);
             suggestions_container.innerHTML = "";
             input.value = "";
         }
@@ -318,4 +248,4 @@ function character_of_yesterday() {
 generate_daily_quests();
 display_daily_quests();
 let solution = character_of_the_day();
-console.log(`Today ${solution["name"]}, Yesterday ${character_of_yesterday()["name"]}`);
+console.log(`Today ${solution["pseudo"]}, Yesterday ${character_of_yesterday()["pseudo"]}`);
