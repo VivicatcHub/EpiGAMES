@@ -92,11 +92,14 @@ function update_suggestions(query) {
 function display_stats(character) {
     const box = document.createElement("div");
     box.className = "stat-container";
+    const stat_boxes = [];
+    let isCorrect = false;
 
     // Box for each stats
     for (const [key, value] of Object.entries(character)) {
         if (datas[key] == null) {
             if (value == solution.id) {
+                isCorrect = true;
                 complete_quest(0, 1);
                 complete_quest(4, 1);
             }
@@ -130,10 +133,10 @@ function display_stats(character) {
             // Compare dates
             if (d1 < d2) {
                 stat_box.style.backgroundImage =
-                "url('https://cdn.pixabay.com/photo/2013/07/12/12/29/arrow-145783_640.png')";
+                    "url('https://cdn.pixabay.com/photo/2013/07/12/12/29/arrow-145783_640.png')";
             } else if (d2 < d1) {
                 stat_box.style.backgroundImage =
-                "url('https://cdn.pixabay.com/photo/2013/07/12/12/29/arrow-145782_1280.png')";
+                    "url('https://cdn.pixabay.com/photo/2013/07/12/12/29/arrow-145782_1280.png')";
             } else {
                 stat_box.classList.add("green");
             }
@@ -155,9 +158,19 @@ function display_stats(character) {
         stat_box.style.backgroundSize = "contain";
         stat_box.style.backgroundRepeat = "no-repeat";
         stat_box.style.backgroundPosition = "center";
+        stat_boxes.push(stat_box);
         box.appendChild(stat_box);
     }
-    stats_display.appendChild(box);
+    stat_boxes.forEach((stat_box, index) => {
+        stat_box.style.animationDelay = `${index * 0.05}s`;
+    });
+    stats_display.prepend(box);
+
+    if (isCorrect) {
+        input.disabled = true;
+        input.value = "";
+        input.placeholder = "New character tomorrow!";
+    }
 }
 
 // If suggestions clicked
@@ -249,4 +262,5 @@ function character_of_yesterday() {
 generate_daily_quests();
 display_daily_quests();
 let solution = character_of_the_day();
+document.getElementById("yesterday").innerHTML = `Yesterday's character was:<br>${character_of_yesterday()["first_name"]} ${character_of_yesterday()["last_name"]} (${character_of_yesterday()["pseudo"]})`
 console.log(`Today ${solution["pseudo"]}, Yesterday ${character_of_yesterday()["pseudo"]}`);

@@ -33,8 +33,27 @@
 
     /* Ensure content is clipped within the box */
     overflow: hidden;
+
+    animation: slideIn 0.5s ease-out forwards;
+    opacity: 0;
+    transition: transform 0.1s, box-shadow 0.2s;
 }
 
+.stat-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 
 .stat-box.green {
     /* Green Background */
