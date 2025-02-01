@@ -1,3 +1,21 @@
+/* 
+   ___  ____ ____   ____   ____  ___ ___    ___  _____        
+  /  _]|    \    | /    | /    ||   |   |  /  _]/ ___/        
+ /  [_ |  o  )  | |   __||  o  || _   _ | /  [_(   \_         
+|    _]|   _/|  | |  |  ||     ||  \_/  ||    _]\__  |        
+|   [_ |  |  |  | |  |_ ||  _  ||   |   ||   [_ /  \ |        
+|     ||  |  |  | |     ||  |  ||   |   ||     |\    |        
+|_____||__| |____||___,_||__|__||___|___||_____| \___|        
+                                                              
+   ___  ____ ____   __  _      ____   __  __  _    ___  ____  
+  /  _]|    \    | /  ]| |    |    | /  ]|  |/ ]  /  _]|    \ 
+ /  [_ |  o  )  | /  / | |     |  | /  / |  ' /  /  [_ |  D  )
+|    _]|   _/|  |/  /  | |___  |  |/  /  |    \ |    _]|    / 
+|   [_ |  |  |  /   \_ |     | |  /   \_ |     \|   [_ |    \ 
+|     ||  |  |  \     ||     | |  \     ||  .  ||     ||  .  \
+|_____||__| |____\____||_____||____\____||__|\_||_____||__|\_|
+
+*/
 
 .stat-container {
     display: flex;
@@ -26,10 +44,12 @@
     position: relative;
 
     /* Ensure text wraps inside the box */
-    word-wrap: break-word; /* For older browsers */
+    word-wrap: break-word;
+    /* For older browsers */
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: normal; /* Allows text to wrap to the next line */
+    white-space: normal;
+    /* Allows text to wrap to the next line */
 
     /* Ensure content is clipped within the box */
     overflow: hidden;
@@ -49,6 +69,7 @@
         transform: translateY(-50px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
