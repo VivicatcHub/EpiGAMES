@@ -1,22 +1,11 @@
 <!DOCTYPE html>
 <!--
-
-___  ____                                            
-|  \/  (_)                                           
-| .  . |_ ___  ___    __ _  __ _ _ __ ___   ___  ___ 
-| |\/| | / __|/ __|  / _` |/ _` | '_ ` _ \ / _ \/ __|
-| |  | | \__ \ (__  | (_| | (_| | | | | | |  __/\__ \
-\_|  |_/_|___/\___|  \__, |\__,_|_| |_| |_|\___||___/
-                      __/ |                          
-                     |___/   
-
 ______ _____  ________  ________ _      _____        
 |  _  \  _  ||  _  |  \/  |  _  \ |    |  ___|       
 | | | | | | || | | | .  . | | | | |    | |__         
 | | | | | | || | | | |\/| | | | | |    |  __|        
 | |/ /\ \_/ /\ \_/ / |  | | |/ /| |____| |___        
 |___/  \___/  \___/\_|  |_/___/ \_____/\____/   
-
 
 -->
 <html lang="en">
@@ -44,14 +33,14 @@ ______ _____  ________  ________ _      _____
 
     <!-- Game Container -->
     <div class="main-container">
-        <img id="title" src="doomdle_title.png" draggable="false">
+        <img id="title" src="assets/doomdle_title.png" draggable="false">
         <h2 id="subtitle">A daily DOOM character guessing game</h2>
 
         <div class="game-container">
             <input type="text" id="doomdle-input" placeholder="Search for a character" size="25">
             <div id="stats-display" class="stats-container"></div>
         </div>
-        <img id="smol_credits" src="smol-credits.png" draggable="false">
+        <img id="smol_credits" src="assets/smol-credits.png" draggable="false">
     </div>
 
     <!-- Footer -->
@@ -62,6 +51,7 @@ ______ _____  ________  ________ _      _____
 
 </html>
 
+<script src="../data.js"></script>
 <script src="../quests.js"></script>
 <script src="data.js"></script>
 <script src="doomdle.js"></script>

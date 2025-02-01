@@ -1,23 +1,33 @@
+/*
+______ _____  ________  ________ _      _____ 
+|  _  \  _  ||  _  |  \/  |  _  \ |    |  ___|
+| | | | | | || | | | .  . | | | | |    | |__  
+| | | | | | || | | | |\/| | | | | |    |  __| 
+| |/ /\ \_/ /\ \_/ / |  | | |/ /| |____| |___ 
+|___/  \___/  \___/\_|  |_/___/ \_____/\____/ 
+
+*/
+
 @font-face {
     font-family: "EternalUI";
-    src: url("EternalUI.ttf");
+    src: url("assets/EternalUI.ttf");
     text-rendering: optimizeLegibility;
 }
 
 @font-face {
     font-family: "EternalBattle";
-    src: url("EternalBattle.ttf");
+    src: url("assets/EternalBattle.ttf");
     text-rendering: optimizeLegibility;
 }
 
 @font-face {
     font-family: "doom2016";
-    src: url("doom2016.ttf");
+    src: url("assets/doom2016.ttf");
     text-rendering: optimizeLegibility;
 }
 
 body {
-    background-image: url("doom_bg.png");
+    background-image: url("assets/doom_bg.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -102,6 +112,7 @@ body {
         transform: translateY(-50px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -136,10 +147,12 @@ body {
     position: relative;
 
     /* Ensure text wraps inside the box */
-    word-wrap: break-word; /* For older browsers */
+    word-wrap: break-word;
+    /* For older browsers */
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: normal; /* Allows text to wrap to the next line */
+    white-space: normal;
+    /* Allows text to wrap to the next line */
 
     /* Ensure content is clipped within the box */
     overflow: hidden;
