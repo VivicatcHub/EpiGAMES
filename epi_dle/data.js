@@ -1,7 +1,7 @@
 const datas = {
     id: null,
     first_name: "str",
-    last_name: "str",
+    last_name: null,
     pseudo: "str",
     genre: "str",
     ddn: "date",

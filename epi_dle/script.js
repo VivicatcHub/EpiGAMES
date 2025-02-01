@@ -117,7 +117,7 @@ function display_stats(character) {
                     count++;
                 }
             }
-            if (count == v.length) {
+            if (count == solution[key].split(",").length) {
                 stat_box.classList.add("green");
             } else if (count > 0) {
                 stat_box.classList.add("yellow");
@@ -243,7 +243,7 @@ input.addEventListener('focus', function () {
 function character_of_the_day() {
     const date = new Date();
     const day_hash = date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate(); // Unic number every day
-    const index = day_hash % characters.length; // Choose daily character
+    let index = day_hash % characters.length; // Choose daily character
     if (characters[index]["id"] == character_of_yesterday()["id"]) {
         index = (index + 1) % characters.length;
     }

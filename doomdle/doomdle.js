@@ -114,6 +114,8 @@ function display_stats(character) {
         if (datas[key] == null) {
             if (value == solution.id) {
                 complete_quest(4, 1);
+                stat_box.classList.add("green");
+                isCorrect = true;
             }
             continue;
         } else if (datas[key] == "str") {
@@ -139,12 +141,6 @@ function display_stats(character) {
                 stat_box.style.backgroundImage =
                     "url('https://cdn.pixabay.com/photo/2013/07/12/12/29/arrow-145782_1280.png')";
             }
-        } else if (key === "id" && value === solution.id) {
-            stat_box.classList.add("green");
-            isCorrect = true;
-        } else if (key === "name" && value.toLowerCase() === solution.name.toLowerCase()) {
-            stat_box.classList.add("green");
-            isCorrect = true;
         }
 
         statBoxes.push(stat_box);
