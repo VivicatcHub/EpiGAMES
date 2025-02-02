@@ -1,0 +1,38 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    overflow: hidden;
+}
+
+#booster {
+    position: relative;
+    cursor: pointer;
+    width: 200px;
+    margin: 20px auto;
+}
+
+#cards-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, RGB(0, 0, 0), RGB(255, 255, 255));
+    visibility: hidden;
+}
+
+.card {
+    position: absolute;
+    width: 300px;
+    height: 450px;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.slide-out {
+    transform: translateX(100%) rotate(10deg);
+    opacity: 0;
+}
