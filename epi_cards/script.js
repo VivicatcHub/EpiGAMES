@@ -50,10 +50,11 @@ function are_daily_quests_completed() {
     return daily_quests.every(quest => quest.completed === true);
 }
 
-function has_opened_pack_today() {
-    const last_opened = localStorage.getItem('lastWin');
+function has_win_pack_today() {
+    const last_win = localStorage.getItem('lastWin');
     const today = new Date().toISOString().split('T')[0];
-    return last_opened === today;
+    console.log(last_win, today);
+    return last_win === today;
 }
 
 const booster = document.getElementById('booster');
@@ -64,12 +65,14 @@ let selected_cards = [];
 let do_wait = false;
 
 function update_overlay() {
-    let storedPacks = get_stored_packs();
-    if (are_daily_quests_completed() && !has_opened_pack_today()) storedPacks++;
-    overlay.textContent = `${storedPacks}`;
-    update_stored_packs(storedPacks);
+    let stored_packs = get_stored_packs();
     const today = new Date().toISOString().split('T')[0];
-    localStorage.setItem('lastWin', today)
+    if (are_daily_quests_completed() && !has_win_pack_today()) {
+        stored_packs++;
+        localStorage.setItem('lastWin', today);
+    }
+    overlay.textContent = `${stored_packs}`;
+    update_stored_packs(stored_packs);
 }
 
 update_overlay();
@@ -111,7 +114,7 @@ booster.addEventListener('click', () => {
 });
 
 document.addEventListener('keydown', (e) => {
-    if (e.key === 's' || e.key === 'S') { 
+    if (e.key === 's' || e.key === 'S') {
         let cards = document.querySelectorAll('.card');
         let delay = 0;
 
