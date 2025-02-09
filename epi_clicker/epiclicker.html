@@ -15,55 +15,29 @@
    
 -->
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EpiGAMES - EpiClicker</title>
-    <link rel="stylesheet" href="../style.css">
+    <title>Epic Clicker</title>
     <link rel="stylesheet" href="epiclicker.css">
 </head>
-
 <body>
-    <!-- Header -->
-    <header>
-        <div>
-            <a href="../index.html" class="main-title">EpiGAMES</a>
-        </div>
-        <nav>
-            <a href="../index.html">Menu</a>
-            <a href="../contacts.html">Contacts</a>
-            <a href="../profile.html">Profile</a>
-        </nav>
-    </header>
-
-    <div class="main-container">
-        <h1>EpiClicker</h1>
+    <div id="game-container">
+        <h1>Epic Clicker</h1>
+        <button id="click">Click me!</button>
         <p>Epicoin: <span id="epicoin-count">0</span></p>
-        <p>Passive Income: <span id="passive-income">0</span> per second</p>
-        <div>
-            <button id="click">Click me!</button>
-        </div>
-
-        <div class="upgrade" id="upgrade-container">
-            <h2>Upgrades</h2>
-            <button id="acupgrade">Auto Clicker (Cost: 10 Epicoin)</button>
-            <button id="codelineupgrade">Code Line (Cost: 50 Epicoin)</button>
-            <button id="debuggrade">Debugger (Cost: 100 Epicoin)</button>
-            <button id="vivicaty">Vivicaty's Help (Cost: 1000 Epicoin)</button>
-        </div>
-
-        <div id="code-display"
-            style="white-space: pre-wrap; overflow-y: scroll; height: 200px; border: 1px solid black;">
-        </div>
+        <p>Passive Income: <span id="passive-income">0</span></p>
+        <div id="upgrade-container"></div>
+        <button id="bonus-button">Get Bonus</button>
+        <div id="code-display"></div>
     </div>
-
-    <!-- Footer -->
-    <div class="footer">
-        &copy; 2025 EpiGAMES. all rights reserved.
+    <div id="chat-container">
+        <div id="chat-messages"></div>
+        <input type="text" id="chat-input" placeholder="Type a message...">
+        <button id="chat-send">Send</button>
     </div>
+    <script src="epiclicker.js"></script>
 </body>
-
 </html>
 
 <script src="../data.js"></script>
