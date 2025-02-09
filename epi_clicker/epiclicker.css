@@ -49,6 +49,23 @@ body {
     font-family: monospace;
 }
 
+#quest-container {
+    position: fixed;
+    top: 50px;
+    right: 0;
+    width: 200px;
+    background-color: #fff;
+    border-radius: 10px 0 0 10px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+#quest-container:hover {
+    transform: translateX(0);
+}
+
 #chat-container {
     margin: 20px auto;
     padding: 20px;
@@ -87,4 +104,21 @@ body {
 
 #click {
     animation: clickAnimation 0.2s;
+}
+
+.scrolling-message {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    animation: scrollUp 2s ease-in-out;
+}
+
+@keyframes scrollUp {
+    0% { bottom: 10px; opacity: 1; }
+    100% { bottom: 50px; opacity: 0; }
 }

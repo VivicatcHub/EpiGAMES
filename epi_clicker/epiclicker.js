@@ -175,4 +175,56 @@
             chatMessages.innerHTML = savedMessages;
         }
     });
+
+    // Daily Quests
+    let quests = [
+        { description: "Click 100 times", progress: 0, goal: 100, reward: 50 },
+        { description: "Earn 500 Epicoin", progress: 0, goal: 500, reward: 100 }
+    ];
+
+    function updateQuests() {
+        const questList = document.getElementById('quest-list');
+        questList.innerHTML = '';
+        quests.forEach((quest, index) => {
+            const questItem = document.createElement('div');
+            questItem.className = 'quest-item';
+            questItem.innerHTML = `
+                <p>${quest.description}</p>
+                <p>Progress: ${quest.progress}/${quest.goal}</p>
+                <p>Reward: ${quest.reward} Epicoin</p>
+            `;
+            questList.appendChild(questItem);
+        });
+    }
+
+    function completeQuest(index) {
+        if (quests[index].progress >= quests[index].goal) {
+            epicoin += quests[index].reward;
+            quests[index].progress = 0;
+            updateDisplay();
+            updateQuests();
+            showMessage(`Completed quest: ${quests[index].description}`);
+        }
+    }
+
+    function incrementQuestProgress(index, amount) {
+        quests[index].progress += amount;
+        if (quests[index].progress >= quests[index].goal) {
+            completeQuest(index);
+        } else {
+            updateQuests();
+        }
+    }
+
+    document.getElementById('click').addEventListener('click', () => {
+        clickButton();
+        incrementQuestProgress(0, 1);
+    });
+
+    setInterval(() => {
+        generatePassiveIncome();
+        incrementQuestProgress(1, passiveIncome);
+    }, 1000);
+
+    updateQuests();
 })();
