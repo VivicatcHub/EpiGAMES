@@ -101,26 +101,18 @@ function create_pop_up() {
     popup.style.textAlign = "center";
     popup.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.3)";
 
-    const img = document.createElement("img");
-    img.src = solution["img"];
-    img.style.width = "200px";
-    img.style.height = "200px";
-    img.style.objectFit = "cover";
-    img.style.borderRadius = "10px";
-
     const message = document.createElement("p");
-    message.textContent = `Bravo ! C'était bien ${solution["last_name"]} ${solution["first_name"]} aka ${solution["pseudo"]}`;
+    message.textContent = `Bravo ! C'était bien ${solution} qui a prononcé cette phrase culte : "${quote_of_the_day()["quote"]}"`;
     message.style.margin = "15px 0";
 
     const close_button = document.createElement("button");
-    close_button.textContent = "QUOTES";
+    close_button.textContent = "IMAGES";
     close_button.className = "game-card";
 
     close_button.onclick = () => {
-        location.href = 'quotes.html';
+        location.href = 'images.html';
     };
 
-    popup.appendChild(img);
     popup.appendChild(message);
     popup.appendChild(close_button);
     popup_container.appendChild(popup);
@@ -139,79 +131,24 @@ function display_stats(character) {
     box.className = "stat-container";
     const stat_boxes = [];
     let isCorrect = false;
+    const value = `${character["last_name"]} ${character["first_name"]}`;
 
-    // Box for each stats
-    for (const [key, value] of Object.entries(character)) {
-        if (datas[key] == null) {
-            if (value == solution.id) {
-                isCorrect = true;
-                complete_quest(0, 1);
-                complete_quest(4, 1);
-            }
-            continue;
-        }
-        const stat_box = document.createElement("div");
-        stat_box.className = "stat-box";
-        stat_box.innerHTML = value.replaceAll(",", " ");
-        if (datas[key] == "str") {
-            const v = value.split(",");
-            let count = 0;
-
-            for (let i = 0; i < v.length; i++) {
-                if (solution[key].split(",").includes(v[i])) {
-                    count++;
-                }
-            }
-            if (count == solution[key].split(",").length && count == value.split(",").length) {
-                stat_box.classList.add("green");
-            } else if (count > 0) {
-                stat_box.classList.add("yellow");
-            }
-        } else if (datas[key] == "date") {
-            // Convert dates
-            const [day1, month1, year1] = value.split("/").map(Number);
-            const [day2, month2, year2] = solution[key].split("/").map(Number);
-
-            const d1 = new Date(year1, month1 - 1, day1);
-            const d2 = new Date(year2, month2 - 1, day2);
-
-            // Compare dates
-            if (d1 < d2) {
-                stat_box.style.backgroundImage =
-                    "url('https://cdn.pixabay.com/photo/2013/07/12/12/29/arrow-145783_640.png')";
-            } else if (d2 < d1) {
-                stat_box.style.backgroundImage =
-                    "url('https://cdn.pixabay.com/photo/2013/07/12/12/29/arrow-145782_1280.png')";
-            } else {
-                stat_box.classList.add("green");
-            }
-        } else if (datas[key] == "int") {
-            const v1 = Number(value);
-            const v2 = Number(solution[key]);
-
-            if (v1 < v2) {
-                stat_box.style.backgroundImage =
-                    "url('https://cdn.pixabay.com/photo/2013/07/12/12/29/arrow-145783_640.png')";
-            } else if (v2 < v1) {
-                stat_box.style.backgroundImage =
-                    "url('https://cdn.pixabay.com/photo/2013/07/12/12/29/arrow-145782_1280.png')";
-            } else {
-                stat_box.classList.add("green");
-            }
-        } else if (datas[key] == "img") {
-            stat_box.style.backgroundColor = "transparent";
-            stat_box.innerHTML = `<img style="width: 100px; height: 100px; object-fit: cover; object-position: center;" src="${value}">`;
-        }
-        // Ajust images
-        stat_box.style.backgroundSize = "contain";
-        stat_box.style.backgroundRepeat = "no-repeat";
-        stat_box.style.backgroundPosition = "center";
-        stat_boxes.push(stat_box);
-        box.appendChild(stat_box);
+    const stat_box = document.createElement("div");
+    stat_box.className = "stat-box";
+    stat_box.innerHTML = value;
+    if (value == solution) {
+        isCorrect = true;
+        complete_quest(0, 1);
+        complete_quest(4, 1);
+        stat_box.classList.add("green");
     }
-    stat_boxes.forEach((stat_box, index) => {
-        stat_box.style.animationDelay = `${index * 0.05}s`;
-    });
+    // Ajust images
+    stat_box.style.backgroundSize = "contain";
+    stat_box.style.backgroundRepeat = "no-repeat";
+    stat_box.style.backgroundPosition = "center";
+    stat_box.style.height = "50px";
+    stat_boxes.push(stat_box);
+    box.appendChild(stat_box);
     stats_display.prepend(box);
 
     if (isCorrect) {
@@ -220,7 +157,6 @@ function display_stats(character) {
         input.placeholder = "New character tomorrow!";
         create_pop_up();
     }
-
 }
 
 // If suggestions clicked
@@ -290,27 +226,27 @@ input.addEventListener('focus', function () {
     suggestions_container.style.left = `${inputRect.left + window.scrollX}px`;
 });
 
-function image_of_the_day() {
+function quote_of_the_day() {
     const date = new Date();
     const day_hash = date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate(); // Unic number every day
-    let index = day_hash % characters.length; // Choose daily character
-    if (characters[index]["id"] == image_of_yesterday()["id"]) {
-        index = (index + 1) % characters.length;
+    let index = day_hash % quotes.length; // Choose daily character
+    if (quotes[index]["id"] == quote_of_yesterday()["id"]) {
+        index = (index + 1) % quotes.length;
     }
-    return characters[index]
+    return quotes[index]
 }
 
-function image_of_yesterday() {
+function quote_of_yesterday() {
     const date = new Date();
     date.setDate(date.getDate() - 1);
     const day_hash = date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
-    const index = day_hash % characters.length;
-    return characters[index];
+    const index = day_hash % quotes.length;
+    return quotes[index];
 }
 
 // Init
 generate_daily_quests();
 display_daily_quests();
-let solution = image_of_the_day();
-document.getElementById("yesterday").innerHTML = `Yesterday's character was:<br>${image_of_yesterday()["first_name"]} ${image_of_yesterday()["last_name"]} (${image_of_yesterday()["pseudo"]})`
-console.log(`Today ${solution["pseudo"]}, Yesterday ${image_of_yesterday()["pseudo"]}`);
+let solution = quote_of_the_day()["author"];
+document.getElementById("quote").innerHTML = `${quote_of_the_day()["quote"]}`;
+console.log(`Today "${quote_of_the_day()["quote"]}" by ${solution}, Yesterday "${quote_of_yesterday()["quote"]}" by ${quote_of_yesterday()["author"]}`);

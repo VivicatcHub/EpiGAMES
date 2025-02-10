@@ -17,7 +17,7 @@
 |_____||__| |____\____||_____||____\____||__|\_||_____||__|\_|
 
 -->
-<html lang>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -40,46 +40,37 @@
         </nav>
     </header>
 
-    <!-- Settings Pop-up -->
-    <div id="popup-container" class="popup-container">
-        <div class="popup">
-            <h2 id="settings">Settings</h2>
-            <button id="goToSettings" onclick="location.href='settings.html';">Add/Modify Datas</button>
-            <button id="closePopup" onclick="toggle_popup()">Close</button>
+    <!-- Main Container -->
+    <div class="main-container">
+        <div class="top_title">
+            <button onclick="location.href='index.html'" class="settings-btn">
+                <img src="assets/arrow-u-up-left-svgrepo-com.svg" alt="Settings" class="settings-icon">
+            </button>
+            <button onclick="toggle_popup()" class="settings-btn">
+                <img src="assets/settings-svgrepo-com.svg" alt="Settings" class="settings-icon">
+            </button>
+            <h1 style="color: white;">EPIDLE</h1>
+            <button id="lang" onclick="toggle_language()" class="settings-btn">🇫🇷</button>
         </div>
-    </div>   
-    
-    <!-- Main Content -->
-    <div class="top_title">
-        <button onclick="toggle_popup()" class="settings-btn">
-            <img src="assets/settings-svgrepo-com.svg" alt="Settings" class="settings-icon">
-        </button>
-        <h1 style="color: white;">EPIDLE</h1>
-        <button id="lang" onclick="toggle_language()" class="settings-btn">🇫🇷</button>
-    </div>
-    <h2 style="color: white;" id="subtitle">Guess Epitech student of today</h2>
-    <div class="dle-grid">
-        <div class="game-card" onclick="location.href='characters.html';">
-            <h3 id="characters">Characters</h3>
-            <p id="wip1"><i>Work in Progress</i></p>
+
+        <div class="game-container">
+            <div class="container">
+                <img id="zoomImage" class="image" src="" alt="Image">
+            </div>
+            <input type="text" id="character-input" placeholder="Nom du personnage">
+            <div id="stats-display" class="stats-container"></div>
         </div>
-        <div class="game-card" onclick="location.href='quotes.html';">
-            <h3 id="quotes">Quotes</h3>
-            <p id="wip2"><i>Work in Progress</i></p>
-        </div>
-        <div class="game-card" onclick="location.href='images.html';">
-            <h3 id="images">Images (PP)</h3>
-            <p id="wip3"><i>Work in Progress</i></p>
-        </div>
-        <div class="game-card" style="cursor: default;">
-            <h3 id="wantMore">Want more?</h3>
-            <img class="logo" src="https://upload.wikimedia.org/wikipedia/fr/f/f0/Doom_Logo.png" alt="DOOM" onclick="location.href='../doomdle/index.html'">
+        <div class="dle-grid">
+            <div class="game-card" style="cursor: default;">
+                <h3 id="wantMore">Want more?</h3>
+                <img class="logo" src="https://upload.wikimedia.org/wikipedia/fr/f/f0/Doom_Logo.png" alt="DOOM" onclick="location.href='../doomdle/index.html'">
+            </div>
         </div>
     </div>
 
     <!-- Footer -->
     <div class="footer">
-        &copy; 2025 EpiGAMES. All rights reserved.
+        &copy; 2025 EpiGAMES. all rights reserved.
     </div>
 </body>
 
@@ -87,4 +78,5 @@
 
 <script src="../data.js"></script>
 <script src="../quests.js"></script>
-<script src="index.js"></script>
+<script src="data.js"></script>
+<script src="images.js"></script>

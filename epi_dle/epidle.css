@@ -17,6 +17,14 @@
 
 */
 
+body {
+    background-image: url('https://i.pinimg.com/originals/79/84/ab/7984ab31599673ba0611770e06f9e896.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
 .stat-container {
     display: flex;
     /* Next line */
@@ -90,4 +98,92 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.top_title {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 25px;
+}
+
+.dle-grid {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.settings-icon {
+    width: 32px;
+    height: 32px;
+    color: white;
+}
+
+.settings-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.logo {
+    cursor: pointer;
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.container {
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid black;
+    margin: 0 auto;
+}
+
+.image {
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2);
+    transition: transform 0.5s ease;
+}
+
+.end_popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
 }

@@ -31,50 +31,26 @@
     <!-- Header -->
     <header>
         <div>
-            <a href="../index.html" class="main-title">EpiGAMES</a>
+            <h1>EPIDLE</h1>
         </div>
         <nav>
             <a href="../index.html">Menu</a>
             <a href="../contacts.html">Contacts</a>
             <a href="../profile.html">Profile</a>
         </nav>
-    </header>
-
-    <!-- Settings Pop-up -->
-    <div id="popup-container" class="popup-container">
-        <div class="popup">
-            <h2 id="settings">Settings</h2>
-            <button id="goToSettings" onclick="location.href='settings.html';">Add/Modify Datas</button>
-            <button id="closePopup" onclick="toggle_popup()">Close</button>
-        </div>
-    </div>   
+    </header> 
     
     <!-- Main Content -->
     <div class="top_title">
-        <button onclick="toggle_popup()" class="settings-btn">
-            <img src="assets/settings-svgrepo-com.svg" alt="Settings" class="settings-icon">
+        <button onclick="location.href='index.html'" class="settings-btn">
+            <img src="assets/arrow-u-up-left-svgrepo-com.svg" alt="Settings" class="settings-icon">
         </button>
         <h1 style="color: white;">EPIDLE</h1>
         <button id="lang" onclick="toggle_language()" class="settings-btn">🇫🇷</button>
     </div>
-    <h2 style="color: white;" id="subtitle">Guess Epitech student of today</h2>
+    <p style="color: white;">If you find an error, visit our contact</p>
     <div class="dle-grid">
-        <div class="game-card" onclick="location.href='characters.html';">
-            <h3 id="characters">Characters</h3>
-            <p id="wip1"><i>Work in Progress</i></p>
-        </div>
-        <div class="game-card" onclick="location.href='quotes.html';">
-            <h3 id="quotes">Quotes</h3>
-            <p id="wip2"><i>Work in Progress</i></p>
-        </div>
-        <div class="game-card" onclick="location.href='images.html';">
-            <h3 id="images">Images (PP)</h3>
-            <p id="wip3"><i>Work in Progress</i></p>
-        </div>
-        <div class="game-card" style="cursor: default;">
-            <h3 id="wantMore">Want more?</h3>
-            <img class="logo" src="https://upload.wikimedia.org/wikipedia/fr/f/f0/Doom_Logo.png" alt="DOOM" onclick="location.href='../doomdle/index.html'">
-        </div>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeFgcbHIG1XBdgXKHlnZRKep2rbwoF82Mnp279xqCFX8RYyuQ/viewform?embedded=true" width="640" height="3136" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
     </div>
 
     <!-- Footer -->
@@ -85,6 +61,4 @@
 
 </html>
 
-<script src="../data.js"></script>
-<script src="../quests.js"></script>
 <script src="index.js"></script>
