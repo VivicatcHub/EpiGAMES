@@ -221,7 +221,19 @@ const characters = [
         campus: "Lyon",
         promotion: "2029",
         asso: "AnimeTek",
-        img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+    },
+    {
+        img: "https://i.ytimg.com/vi/N4aRRas6HZY/sddefault.jpg",
+        id: 14,
+        first_name: "Guillaume",
+        last_name: "NAZARET",
+        pseudo: "Guigui",
+        genre: "M",
+        ddn: "27/06/2006",
+        taille: "179",
+        campus: "Lyon",
+        promotion: "2029",
+        asso: "AnimeTek,Ambassadeur,HOD,GameTek",
     }
 ];
 
