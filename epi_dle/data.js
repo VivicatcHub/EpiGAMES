@@ -132,97 +132,6 @@ const characters = [
         asso: "AnimeTek,GameTek",
     },
     {
-        img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
-        id: 7,
-        first_name: "Sacha",
-        last_name: "DEFOSSEZ",
-        pseudo: "DominusMalfrus",
-        genre: "M",
-        ddn: "31/08/2006",
-        taille: "0",
-        campus: "Lyon",
-        promotion: "2029",
-        asso: "AnimeTek",
-    },
-    {
-        img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
-        id: 8,
-        first_name: "Alexandre",
-        last_name: "KUBIACZYK",
-        pseudo: "Az0xI",
-        genre: "M",
-        ddn: "04/03/2006",
-        taille: "0",
-        campus: "Lyon",
-        promotion: "2029",
-        asso: "AnimeTek",
-    },
-    {
-        img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
-        id: 9,
-        first_name: "Nadal",
-        last_name: "BERTHELON",
-        pseudo: "Kuraby",
-        genre: "M",
-        ddn: "01/01/2000",
-        taille: "0",
-        campus: "Lyon",
-        promotion: "2029",
-        asso: "AnimeTek",
-    },
-    {
-        img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
-        id: 10,
-        first_name: "Esteban",
-        last_name: "HAZANAS",
-        pseudo: "Kuku the Axolotl",
-        genre: "M",
-        ddn: "13/12/2005",
-        taille: "0",
-        campus: "Lyon",
-        promotion: "2029",
-        asso: "AnimeTek",
-    },
-    {
-        img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
-        id: 11,
-        first_name: "Hugo",
-        last_name: "ARNAL",
-        pseudo: "Kuku the Axolotl",
-        genre: "M",
-        ddn: "01/01/2000",
-        taille: "0",
-        campus: "Lyon",
-        promotion: "2029",
-        asso: "AnimeTek",
-    },
-    {
-        img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
-        id: 12,
-        first_name: "Bastien",
-        last_name: "SUKIENNIK",
-        pseudo: "Chocolatine-sama",
-        genre: "M",
-        ddn: "01/01/2000",
-        taille: "0",
-        campus: "Lyon",
-        promotion: "2029",
-        asso: "AnimeTek",
-    },
-    {
-        img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
-        id: 13,
-        first_name: "Hector",
-        last_name: "CORDAT-BOURSIAC",
-        pseudo: "Totor2497",
-        genre: "M",
-        ddn: "01/01/2000",
-        taille: "0",
-        campus: "Lyon",
-        promotion: "2029",
-        asso: "AnimeTek",
-    },
-    {
         img: "https://i.ytimg.com/vi/N4aRRas6HZY/sddefault.jpg",
         id: 14,
         first_name: "Guillaume",
@@ -239,22 +148,10 @@ const characters = [
 
 const quotes = [
     {
-        id: 0,
-        quote: "OMG ?? POV : moi quand str - 48",
-        author: "DEFOSSEZ Sacha",
-        destin: "KUBIACZYK Alexandre"
-    },
-    {
         id: 1,
         quote: "Eggs beacon grits sausage",
         author: "DE MUIZON Ferréol",
         destin: "Nobody"
-    },
-    {
-        id: 2,
-        quote: "A demain",
-        author: "DEFOSSEZ Sacha",
-        destin: "BERTHELON Nadal"
     },
     {
         id: 3,
@@ -263,40 +160,16 @@ const quotes = [
         destin: "GUINET Valentin"
     },
     {
-        id: 4,
-        quote: "Jvai te violer esteban",
-        author: "DEFOSSEZ Sacha",
-        destin: "HAZANAS Esteban"
-    },
-    {
-        id: 5,
-        quote: "Enculé va je t'ai répondu ma daronne a vu le gif sale chien va",
-        author: "ARNAL Hugo",
-        destin: "HAZANAS Esteban"
-    },
-    {
         id: 6,
         quote: "Toi quand on veut accéder à ton nom, on est obligé d’utiliser une flèche au lieu d’un point parce que t’es un pointeur",
         author: "GUINET Valentin",
         destin: "LAFOLIE Loray"
     },
     {
-        id: 7,
-        quote: "Vasy elle me fait peur",
-        author: "SUKIENNIK Bastien",
-        destin: "DEFOSSEZ Sacha"
-    },
-    {
         id: 8,
         quote: "Enlève tes chaussures que j'te leche les iepds",
         author: "LEROY Léonard",
         destin: "DE MUIZON Ferréol"
-    },
-    {
-        id: 9,
-        quote: "J'ai la gorge sèche en mode je me suis pris des singeries par bakary",
-        author: "BERTHELON Nadal",
-        destin: "DEFOSSEZ Sacha"
     },
     {
         id: 10,
@@ -347,46 +220,10 @@ const quotes = [
         destin: "DE MUIZON Ferréol"
     },
     {
-        id: 18,
-        quote: "Mais moi, je suis une tsundere!",
-        author: "HAZANAS Esteban",
-        destin: "DEFOSSEZ Sacha"
-    },
-    {
-        id: 19,
-        quote: "Real",
-        author: "HAZANAS Esteban",
-        destin: "Nobody"
-    },
-    {
         id: 20,
         quote: "T’as volé un fromage là?!",
         author: "LAFOLIE Evan",
         destin: "DE MUIZON Ferréol"
-    },
-    {
-        id: 21,
-        quote: "Tu veux pas que je te suce la bite tant qu'on y est",
-        author: "ARNAL Hugo",
-        destin: "SUKIENNIK Bastien"
-    },
-    {
-        id: 22,
-        quote: "Nuggets",
-        author: "HAZANAS Esteban",
-        destin: "Nobody"
-    },
-    {
-        id: 22,
-        quote: "Nuggets",
-        author: "HAZANAS Esteban",
-        destin: "Nobody"
-    },
-    {
-        id: 23,
-        quote: "Ca casse pas trois pattes à un connard",
-        author: "CORDAT-BOURSIAC Hector",
-        destin: "LEROY Léonard"
     },
     {
         id: 24,
@@ -434,7 +271,7 @@ const quotes = [
         id: 31,
         quote: "Rien à foutre de ta dépression, devient un loup alpha et hurle la nuit à poil dehors",
         author: "LEROY Léonard",
-        destin: "BERTHELON Nadal"
+        destin: "Nobody"
     },
     {
         id: 32,
@@ -446,7 +283,7 @@ const quotes = [
         id: 33,
         quote: "Ils comblent l'eau manquante par la semence de leur chef de village c pour ça",
         author: "LEROY Léonard",
-        destin: "BERTHELON Nadal"
+        destin: "Nobody"
     },
     {
         id: 34,
@@ -458,13 +295,7 @@ const quotes = [
         id: 34,
         quote: "Euh les gars, vous avez songez à, genre, mourir?",
         author: "LAFOLIE Evan",
-        destin: "BERTHELON Nadal"
-    },
-    {
-        id: 35,
-        quote: "Je reviens, je vais donner un tupperware",
-        author: "CORDAT-BOURSIAC Hector",
-        destin: "DEFOSSEZ Sacha"
+        destin: "Nobody"
     },
     {
         id: 36,
@@ -561,5 +392,11 @@ const quotes = [
         quote: "Genre qui se transforme en n’importe quoi et qui a des yeux tout moches?",
         author: "GUINET Valentin",
         destin: "LAFOLIE Evan"
+    },
+    {
+        id: 54,
+        quote: "Nadal si tu continue je vais te voler tout tes pouler On CD",
+        author: "KUBIACZYK Alexandre",
+        destin: "Nobody"
     },
 ]

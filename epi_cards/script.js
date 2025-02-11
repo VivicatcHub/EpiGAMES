@@ -91,7 +91,7 @@ booster.addEventListener('click', () => {
     container.style.visibility = 'visible';
 
     let count = 0;
-    if (get_stored_packs() >= 10) count = 50;
+    if (get_stored_packs() >= 10) count = 500;
     else count = 5;
 
     for (let i = 0; i < count; i++) {
